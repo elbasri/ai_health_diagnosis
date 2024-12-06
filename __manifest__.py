@@ -29,6 +29,11 @@
         'views/symptom_checker_views.xml', 
         'views/menu_health_diagnosis.xml',
     ],
+    'assets': {
+       'web.assets_backend': [
+           'ai_health_management/static/description/icon.png',
+       ],
+    },
     'installable': True,
     'application': True,
     'auto_install': False,
