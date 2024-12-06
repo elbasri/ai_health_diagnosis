@@ -138,4 +138,4 @@ This module is licensed under the AGPL-3. See the LICENSE file for more details.
 
 ## Author
 
-Developed by **ABDENNACER Elbasri** | Twitter: **@abdennacerelb**.
+Developed by **ABDENNACER Elbasri** | Twitter: **@abdennacerelb** | Linkedin **@elbasri**.
