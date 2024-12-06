@@ -1,0 +1,55 @@
+<odoo>
+    <!-- Tree View for Outbreak Prediction -->
+    <record id="view_health_disease_outbreak_prediction_tree" model="ir.ui.view">
+        <field name="name">health.disease.outbreak.prediction.tree</field>
+        <field name="model">health.disease.outbreak.prediction</field>
+        <field name="arch" type="xml">
+            <tree string="Disease Outbreak Prediction">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="region"/>
+                <field name="predicted_disease"/>
+                <field name="prediction_date"/>
+                <field name="accuracy_rate"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Outbreak Prediction -->
+    <record id="view_health_disease_outbreak_prediction_form" model="ir.ui.view">
+        <field name="name">health.disease.outbreak.prediction.form</field>
+        <field name="model">health.disease.outbreak.prediction</field>
+        <field name="arch" type="xml">
+            <form string="Disease Outbreak Prediction">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="employee_id" required="1"/>
+                        <field name="region" readonly="1"/>
+                        <field name="prediction_date"/>
+                    </group>
+                    <group>
+                        <field name="predicted_disease" readonly="1"/>
+                        <field name="accuracy_rate" readonly="1"/>
+                    </group>
+                    <group>
+                        <button name="trigger_prediction" type="object" string="Run Prediction" class="oe_highlight"/>
+                    </group>
+                    <group string="Historical Data" colspan="2">
+                        <field name="historical_data" readonly="1"/>
+                    </group>
+                    <group string="Prediction Result" colspan="2">
+                        <field name="prediction_result" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Outbreak Prediction -->
+    <record id="action_health_disease_outbreak_prediction" model="ir.actions.act_window">
+        <field name="name">Disease Outbreak Prediction</field>
+        <field name="res_model">health.disease.outbreak.prediction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

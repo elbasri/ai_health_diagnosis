@@ -1,0 +1,10 @@
+<odoo>
+    <record id="report_health_diagnosis" model="ir.actions.report">
+        <field name="name">Health Diagnosis Report</field>
+        <field name="model">health.diagnosis</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ai_health_diagnosis.report_health_diagnosis_template</field>
+        <field name="print_report_name">'Diagnosis - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_health_diagnosis"/>
+    </record>
+</odoo>

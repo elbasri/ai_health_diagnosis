@@ -1,0 +1,33 @@
+<odoo>
+    <record id="action_health_diagnosis_attribute_values" model="ir.actions.act_window">
+        <field name="name">Diagnosis Attribute Values</field>
+        <field name="res_model">health.diagnosis.attribute.value</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_health_diagnosis_attribute_value_form" model="ir.ui.view">
+        <field name="name">health.diagnosis.attribute.value.form</field>
+        <field name="model">health.diagnosis.attribute.value</field>
+        <field name="arch" type="xml">
+            <form string="Diagnosis Attribute Value">
+                <sheet>
+                    <group>
+                        <field name="attribute_id"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_health_diagnosis_attribute_value_tree" model="ir.ui.view">
+        <field name="name">health.diagnosis.attribute.value.tree</field>
+        <field name="model">health.diagnosis.attribute.value</field>
+        <field name="arch" type="xml">
+            <tree string="Diagnosis Attribute Values">
+                <field name="attribute_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

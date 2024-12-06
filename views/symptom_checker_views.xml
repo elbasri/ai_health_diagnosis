@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Action for Symptom Checker -->
+    <record id="action_symptom_checker" model="ir.actions.act_window">
+        <field name="name">Symptom Checker</field>
+        <field name="res_model">symptom.checker</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree View for Symptom Checker -->
+    <record id="view_symptom_checker_tree" model="ir.ui.view">
+        <field name="name">symptom.checker.tree</field>
+        <field name="model">symptom.checker</field>
+        <field name="arch" type="xml">
+            <tree string="Symptom Checker">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="check_date"/>
+                <field name="suggested_conditions"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Symptom Checker -->
+    <record id="view_symptom_checker_form" model="ir.ui.view">
+        <field name="name">symptom.checker.form</field>
+        <field name="model">symptom.checker</field>
+        <field name="arch" type="xml">
+            <form string="Symptom Checker">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="employee_id"/>
+                        <field name="check_date"/>
+                        <field name="symptom_description"/>
+                    </group>
+                    <group>
+                        <field name="suggested_conditions" readonly="1"/>
+                        <field name="recommendation" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="trigger_check" type="object" string="Run Symptom Check" class="oe_highlight"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

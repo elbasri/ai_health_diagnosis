@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Action for Report / Analysis -->
+    <record id="action_health_diagnosis_report" model="ir.actions.act_window">
+        <field name="name">Health Diagnosis Analysis</field>
+        <field name="res_model">health.diagnosis.report</field>
+        <field name="view_mode">graph,tree,pivot</field>
+    </record>
+
+    <!-- Tree View for Health Diagnosis Analysis -->
+    <record id="view_health_diagnosis_report_tree" model="ir.ui.view">
+        <field name="name">health.diagnosis.report.tree</field>
+        <field name="model">health.diagnosis.report</field>
+        <field name="arch" type="xml">
+            <tree string="Health Diagnosis Report">
+                <field name="employee_id"/>
+                <field name="diagnosis_id"/>
+                <field name="date_diagnosis"/>
+                <field name="total_diagnoses"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph View for Health Diagnosis Analysis -->
+    <record id="view_health_diagnosis_report_graph" model="ir.ui.view">
+        <field name="name">health.diagnosis.report.graph</field>
+        <field name="model">health.diagnosis.report</field>
+        <field name="arch" type="xml">
+            <graph string="Health Diagnosis Graph" type="bar">
+                <field name="date_diagnosis" type="row"/>
+                <field name="total_diagnoses" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View for Health Diagnosis Analysis -->
+    <record id="view_health_diagnosis_report_pivot" model="ir.ui.view">
+        <field name="name">health.diagnosis.report.pivot</field>
+        <field name="model">health.diagnosis.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Health Diagnosis Pivot">
+                <field name="date_diagnosis" type="row"/>
+                <field name="employee_id" type="col"/>
+                <field name="total_diagnoses" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,42 @@
+<odoo>
+    <template id="report_health_diagnosis_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Health Diagnosis Report</h2>
+                <p>
+                    <strong>Employee: </strong> <span t-esc="doc.employee_id.name"/><br/>
+                    <strong>Date of Diagnosis: </strong> <span t-esc="doc.date_diagnosis"/><br/>
+                    <strong>Symptom Description: </strong> <span t-esc="doc.symptom_description"/><br/>
+                </p>
+                <table class="table table-sm" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border: 1px solid black;">
+                            <th style="border: 1px solid black;">Attribute Set</th>
+                            <th style="border: 1px solid black;">Attribute</th>
+                            <th style="border: 1px solid black;">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.diagnosis_attribute_line_ids" t-as="line">
+                            <tr style="border: 1px solid black;">
+                                <td style="border: 1px solid black;"><span t-esc="line.attribute_id.attribute_set_id.name"/></td>
+                                <td style="border: 1px solid black;"><span t-esc="line.attribute_id.name"/></td>
+                                <td style="border: 1px solid black;">
+                                    <t t-if="line.value_ids">
+                                        <t t-foreach="line.value_ids" t-as="val" t-foreach-index="i">
+                                            <span t-esc="val.name"/>
+                                            <t t-if="i != len(line.value_ids) - 1">, </t>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <footer style="text-align: center; margin-top: 20px;">
+                    <p>This report was generated using AI technology provided by OpenAI through the AI Health Diagnosis Module.</p>
+                </footer>
+            </t>
+        </t>
+    </template>
+</odoo>

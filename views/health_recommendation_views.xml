@@ -1,0 +1,92 @@
+<odoo>
+    <!-- Tree View for Health Recommendations -->
+    <record id="view_health_recommendation_tree" model="ir.ui.view">
+        <field name="name">health.recommendation.tree</field>
+        <field name="model">health.recommendation</field>
+        <field name="arch" type="xml">
+            <tree string="Health Recommendations">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="recommendation_date"/>
+                <field name="diagnosis_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Health Recommendations -->
+    <record id="view_health_recommendation_form" model="ir.ui.view">
+        <field name="name">health.recommendation.form</field>
+        <field name="model">health.recommendation</field>
+        <field name="arch" type="xml">
+            <form string="Health Recommendation">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="employee_id" required="1"/>
+                        <field name="diagnosis_id" required="1" domain="[('employee_id', '=', employee_id)]"/>
+                        <field name="recommendation_date"/>
+                    </group>
+                    <group>
+                        <button name="trigger_recommendation" type="object" string="Get Recommendations" class="oe_highlight"/>
+                    </group>
+                    <group string="Recommendation">
+                        <field name="recommendation_result" readonly="1"/>
+                        <field name="lifestyle_suggestion" readonly="1"/>
+                        <field name="preventive_measures" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Analysis Views (Tree, Graph, Pivot) for Health Recommendations -->
+    <record id="view_health_recommendation_report_tree" model="ir.ui.view">
+        <field name="name">health.recommendation.report.tree</field>
+        <field name="model">health.recommendation.report</field>
+        <field name="arch" type="xml">
+            <tree string="Health Recommendation Analysis">
+                <field name="employee_id"/>
+                <field name="diagnosis_id"/>
+                <field name="recommendation_date"/>
+                <field name="lifestyle_suggestion"/>
+                <field name="preventive_measures"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_health_recommendation_report_graph" model="ir.ui.view">
+        <field name="name">health.recommendation.report.graph</field>
+        <field name="model">health.recommendation.report</field>
+        <field name="arch" type="xml">
+            <graph string="Health Recommendation Analysis" type="bar">
+                <field name="recommendation_date" type="row"/>
+                <field name="diagnosis_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_health_recommendation_report_pivot" model="ir.ui.view">
+        <field name="name">health.recommendation.report.pivot</field>
+        <field name="model">health.recommendation.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Health Recommendation Pivot">
+                <field name="recommendation_date" type="row"/>
+                <field name="diagnosis_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Actions for Health Recommendations -->
+    <record id="action_health_recommendation" model="ir.actions.act_window">
+        <field name="name">Health Recommendations</field>
+        <field name="res_model">health.recommendation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Actions for Health Recommendation Report -->
+    <record id="action_health_recommendation_report" model="ir.actions.act_window">
+        <field name="name">Health Recommendation Analysis</field>
+        <field name="res_model">health.recommendation.report</field>
+        <field name="view_mode">graph,tree,pivot</field>
+    </record>
+</odoo>

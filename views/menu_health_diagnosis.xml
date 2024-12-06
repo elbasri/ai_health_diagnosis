@@ -1,0 +1,57 @@
+<odoo>
+    <!-- Root Menu for Health Diagnosis -->
+    <menuitem id="menu_health_diagnosis_root" name="Health Diagnosis" sequence="10"/>
+
+    <!-- Group: Diagnosis & Risk Scoring -->
+    <menuitem id="menu_health_diagnosis_group" name="AI Diagnosis" parent="menu_health_diagnosis_root" sequence="10"/>
+    <menuitem id="menu_health_diagnosis_records" name="Health Diagnosis"
+              parent="menu_health_diagnosis_group" action="action_health_diagnosis" sequence="10"/>
+    <menuitem id="menu_health_risk_scoring" name="Risk Scoring"
+              parent="menu_health_diagnosis_group" action="action_health_risk_scoring" sequence="20"/>
+    <menuitem id="menu_health_disease_outbreak_prediction_root" name="Disease Outbreak"
+              parent="menu_health_diagnosis_group" action="action_health_disease_outbreak_prediction" sequence="30"/>
+
+    <!-- Group: Recommendations -->
+    <menuitem id="menu_health_recommendations_group" name="Recommendations" parent="menu_health_diagnosis_root" sequence="20"/>
+    <menuitem id="menu_health_recommendation_root" name="Health Recommendations" 
+              parent="menu_health_recommendations_group" action="action_health_recommendation" sequence="10"/>
+
+    <!-- Group: Analytics & Reporting -->
+    <menuitem id="menu_health_analytics_group" name="Analytics and Reporting" parent="menu_health_diagnosis_root" sequence="30"/>
+    <!-- Menu for Global Analysis -->
+    <menuitem id="menu_global_reporting_root" name="Global Analysis" 
+              parent="menu_health_analytics_group" sequence="10"/>
+    <!-- We will add a global reporting here that include analysis all data in all models -->
+
+    <!-- Menu for Reporting Analysis -->
+    <menuitem id="menu_health_reporting_root" name="Reporting Analysis" 
+              parent="menu_health_analytics_group" sequence="20"/>
+    <!-- Menu Item for Diagnosis Analysis -->
+    <menuitem id="menu_health_diagnosis_reports" name="Diagnosis Analysis"
+              parent="menu_health_reporting_root" action="action_health_diagnosis_report" sequence="10"/>
+    <!-- Menu Item for Disease Outbreak Prediction Analysis -->
+    <menuitem id="menu_health_disease_outbreak_reports" name="Disease Outbreak Analysis"
+              parent="menu_health_reporting_root" action="action_health_disease_outbreak_report" sequence="20"/>
+    <!-- Menu Item for Health Recommendation Analysis -->
+    <menuitem id="menu_health_recommendation_reports" name="Health Recommendation Analysis"
+              parent="menu_health_reporting_root" action="action_health_recommendation_report" sequence="30"/>
+    <!-- Menu Item for Risk Scoring Analysis -->
+    <menuitem id="menu_health_risk_scoring_reports" name="Risk Scoring Analysis"
+              parent="menu_health_reporting_root" action="action_health_risk_scoring_report" sequence="40"/>
+
+    <!-- Group: Settings -->
+    <menuitem id="menu_health_diagnosis_settings_root" name="Diagnosis Settings"
+              parent="menu_health_diagnosis_root" sequence="40"/>
+     <menuitem id="menu_health_diagnosis_openai_settings" name="OpenAI Health Settings"
+              parent="menu_health_diagnosis_settings_root"
+              action="action_openai_health_config_settings" sequence="10"/>
+    <!-- Submenu for Diagnosis Attributes -->
+    <menuitem id="menu_health_diagnosis_attributes" name="Diagnosis Attributes"
+              parent="menu_health_diagnosis_settings_root" action="action_health_diagnosis_attributes" sequence="20"/>
+    <!-- Submenu for Diagnosis Attribute Values -->
+    <menuitem id="menu_health_diagnosis_attribute_values" name="Diagnosis Attribute Values"
+              parent="menu_health_diagnosis_settings_root" action="action_health_diagnosis_attribute_values" sequence="30"/>
+    <!-- Submenu for Diagnosis Attribute Sets -->
+    <menuitem id="menu_health_diagnosis_attribute_sets" name="Attribute Sets"
+              parent="menu_health_diagnosis_settings_root" action="action_health_diagnosis_attribute_sets" sequence="40"/>
+</odoo>

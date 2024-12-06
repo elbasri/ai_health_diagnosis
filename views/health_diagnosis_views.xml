@@ -1,0 +1,62 @@
+<odoo>
+    <record id="view_health_diagnosis_form" model="ir.ui.view">
+        <field name="name">health.diagnosis.form</field>
+        <field name="model">health.diagnosis</field>
+        <field name="arch" type="xml">
+            <form string="Health Diagnosis">
+                <sheet>
+                    <group>
+                        <!-- The name field will have a default value and be readonly -->
+                        <field name="name" readonly="1" options="{'no_create': True}" context="{'default_name': 'New Diagnosis'}"/>
+                        <field name="date_diagnosis" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="symptom_description"/>
+                    </group>
+                    <group string="Diagnosis Attributes">
+                        <!-- Make Diagnosis Attribute Lines readonly -->
+                        <field name="diagnosis_attribute_line_ids" readonly="1">
+                            <tree>
+                                <field name="attribute_id"/>
+                                <field name="value_ids" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <!-- Add button to trigger the OpenAI request -->
+                    <group>
+                        <button name="get_health_advice" type="object" string="Fetch Diagnosis from AI" class="oe_highlight"/>
+                    </group>
+                    
+                    <!-- Report Buttons -->
+                    <div class="oe_button_box" name="button_box">
+                        <button type="action" name="%(report_health_diagnosis)d" string="Print PDF Report" class="oe_stat_button" icon="fa-print"/>
+                        <!-- <button type="object" name="export_diagnosis_excel" string="Export Excel" class="oe_stat_button" icon="fa-file-excel-o"/>-->
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Health Diagnosis -->
+    <record id="view_health_diagnosis_tree" model="ir.ui.view">
+        <field name="name">health.diagnosis.tree</field>
+        <field name="model">health.diagnosis</field>
+        <field name="arch" type="xml">
+            <tree string="Health Diagnosis">
+                <field name="employee_id"/>
+                <field name="name"/>
+                <field name="date_diagnosis"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Health Diagnosis -->
+    <record id="action_health_diagnosis" model="ir.actions.act_window">
+        <field name="name">Health Diagnosis Records</field>
+        <field name="res_model">health.diagnosis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

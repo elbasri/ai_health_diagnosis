@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Action for Risk Scoring Report -->
+    <record id="action_health_risk_scoring_report" model="ir.actions.act_window">
+        <field name="name">Risk Scoring Analysis</field>
+        <field name="res_model">health.risk.scoring.report</field>
+        <field name="view_mode">graph,tree,pivot</field>
+    </record>
+
+    <!-- Tree View for Risk Scoring Report -->
+    <record id="view_health_risk_scoring_report_tree" model="ir.ui.view">
+        <field name="name">health.risk.scoring.report.tree</field>
+        <field name="model">health.risk.scoring.report</field>
+        <field name="arch" type="xml">
+            <tree string="Risk Scoring Report">
+                <field name="employee_id"/>
+                <field name="diagnosis_id"/>
+                <field name="scoring_date"/>
+                <field name="risk_score"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph View for Risk Scoring Report -->
+    <record id="view_health_risk_scoring_report_graph" model="ir.ui.view">
+        <field name="name">health.risk.scoring.report.graph</field>
+        <field name="model">health.risk.scoring.report</field>
+        <field name="arch" type="xml">
+            <graph string="Risk Scoring Graph" type="bar">
+                <field name="scoring_date" type="row"/>
+                <field name="risk_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View for Risk Scoring Report -->
+    <record id="view_health_risk_scoring_report_pivot" model="ir.ui.view">
+        <field name="name">health.risk.scoring.report.pivot</field>
+        <field name="model">health.risk.scoring.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Risk Scoring Pivot">
+                <field name="scoring_date" type="row"/>
+                <field name="employee_id" type="col"/>
+                <field name="risk_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

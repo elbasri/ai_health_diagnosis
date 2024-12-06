@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_employee_form_health_diagnosis" model="ir.ui.view">
+        <field name="name">hr.employee.form.health.diagnosis</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Health Diagnoses">
+                    <group>
+                        <field name="diagnosis_ids" readonly="1">
+                            <!-- Tree view of diagnosis records -->
+                            <tree string="Diagnosis Records" readonly="1">
+                                <field name="name"/>
+                                <field name="date_diagnosis"/>
+                            </tree>
+                            <!-- Form view of diagnosis details -->
+                            <form string="Diagnosis Details" readonly="1">
+                                <group>
+                                    <field name="name" readonly="1"/>
+                                    <field name="date_diagnosis" readonly="1"/>
+                                    <field name="employee_id" readonly="1"/>
+                                    <field name="symptom_description" readonly="1"/>
+                                </group>
+                                <group string="Diagnosis Attributes" readonly="1">
+                                    <!-- Show the diagnosis attributes and values -->
+                                    <field name="diagnosis_attribute_line_ids" readonly="1">
+                                        <tree readonly="1">
+                                            <field name="attribute_id" readonly="1"/>
+                                            <field name="value_ids" widget="many2many_tags" readonly="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

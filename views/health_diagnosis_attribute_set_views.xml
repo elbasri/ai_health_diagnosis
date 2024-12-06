@@ -1,0 +1,32 @@
+<odoo>
+    <record id="action_health_diagnosis_attribute_sets" model="ir.actions.act_window">
+        <field name="name">Attribute Sets</field>
+        <field name="res_model">health.diagnosis.attribute.set</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_health_diagnosis_attribute_set_form" model="ir.ui.view">
+        <field name="name">health.diagnosis.attribute.set.form</field>
+        <field name="model">health.diagnosis.attribute.set</field>
+        <field name="arch" type="xml">
+            <form string="Diagnosis Attribute Set">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="attribute_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_health_diagnosis_attribute_set_tree" model="ir.ui.view">
+        <field name="name">health.diagnosis.attribute.set.tree</field>
+        <field name="model">health.diagnosis.attribute.set</field>
+        <field name="arch" type="xml">
+            <tree string="Diagnosis Attribute Sets">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

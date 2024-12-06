@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Action for Risk Scoring -->
+    <record id="action_health_risk_scoring" model="ir.actions.act_window">
+        <field name="name">Risk Scoring</field>
+        <field name="res_model">health.risk.scoring</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree View for Risk Scoring -->
+    <record id="view_health_risk_scoring_tree" model="ir.ui.view">
+        <field name="name">health.risk.scoring.tree</field>
+        <field name="model">health.risk.scoring</field>
+        <field name="arch" type="xml">
+            <tree string="Risk Scoring">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="risk_score"/>
+                <field name="scoring_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Risk Scoring -->
+    <record id="view_health_risk_scoring_form" model="ir.ui.view">
+        <field name="name">health.risk.scoring.form</field>
+        <field name="model">health.risk.scoring</field>
+        <field name="arch" type="xml">
+            <form string="Risk Scoring">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="employee_id" required="1"/>
+                        <field name="diagnosis_id" required="1" domain="[('employee_id', '=', employee_id)]"/>
+                        <field name="scoring_date"/>
+                    </group>
+                    <group>
+                        <field name="risk_score" readonly="1"/>
+                        <field name="escalation_steps" readonly="1"/>
+                        <field name="risk_analysis" readonly="1"/>
+                    </group>
+                    <button name="trigger_risk_scoring" type="object" string="Calculate Risk" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

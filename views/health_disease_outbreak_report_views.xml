@@ -1,0 +1,49 @@
+<odoo>
+    <!-- Action for Report / Analysis -->
+    <record id="action_health_disease_outbreak_report" model="ir.actions.act_window">
+        <field name="name">Disease Outbreak Prediction Analysis</field>
+        <field name="res_model">health.disease.outbreak.report</field>
+        <field name="view_mode">graph,tree,pivot</field>
+    </record>
+
+    <!-- Tree View for Health Disease Outbreak Analysis -->
+    <record id="view_health_disease_outbreak_report_tree" model="ir.ui.view">
+        <field name="name">health.disease.outbreak.report.tree</field>
+        <field name="model">health.disease.outbreak.report</field>
+        <field name="arch" type="xml">
+            <tree string="Disease Outbreak Prediction Report">
+                <field name="employee_id"/>
+                <field name="predicted_disease"/>
+                <field name="region"/>
+                <field name="prediction_date"/>
+                <field name="accuracy_rate"/>
+                <field name="total_predictions"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph View for Health Disease Outbreak Analysis -->
+    <record id="view_health_disease_outbreak_report_graph" model="ir.ui.view">
+        <field name="name">health.disease.outbreak.report.graph</field>
+        <field name="model">health.disease.outbreak.report</field>
+        <field name="arch" type="xml">
+            <graph string="Disease Outbreak Prediction Graph" type="bar">
+                <field name="prediction_date" type="row"/>
+                <field name="accuracy_rate" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View for Health Disease Outbreak Analysis -->
+    <record id="view_health_disease_outbreak_report_pivot" model="ir.ui.view">
+        <field name="name">health.disease.outbreak.report.pivot</field>
+        <field name="model">health.disease.outbreak.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Disease Outbreak Prediction Pivot">
+                <field name="prediction_date" type="row"/>
+                <field name="employee_id" type="col"/>
+                <field name="accuracy_rate" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

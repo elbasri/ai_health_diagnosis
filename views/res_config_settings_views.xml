@@ -1,0 +1,47 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit_health" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.health</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]//h2" position="after">
+                <h2>OpenAI Health Advice Settings</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col9">
+                        <label for="openai_api_key"/>
+                        <div class="text-muted">Enter your OpenAI API Key here.</div>
+                    </div>
+                    <div class="col3">
+                        <field name="openai_api_key"/>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col9">
+                        <label for="openai_prompt"/>
+                        <div class="text-muted">Enter the default health advice prompt.</div>
+                    </div>
+                    <div class="col3">
+                        <field name="openai_prompt"/>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col9">
+                        <label for="openai_model"/>
+                        <div class="text-muted">Specify the OpenAI model to use (e.g., 'gpt-3.5-turbo').</div>
+                    </div>
+                    <div class="col3">
+                        <field name="openai_model"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_openai_health_config_settings" model="ir.actions.act_window">
+        <field name="name">Config Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'form_view_initial_mode': 'edit', 'force_detailed_view': 'true'}</field>
+    </record>
+</odoo>
