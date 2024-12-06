@@ -8,6 +8,7 @@
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'images': ['static/description/ai_health_icon.png'],
+    'web_icon_data':  ['static/description/ai_health_icon.png'],
     'depends': ['base', 'hr'],
     'data': [
         'security/ir.model.access.csv',
