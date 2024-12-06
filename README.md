@@ -73,7 +73,7 @@ This solution allows:
 1. Ensure your Odoo instance has the HR module installed.
 2. Clone this repository into your Odoo `addons` directory:
    ```bash
-   git clone https://github.com/username/ai_health_management.git
+   git clone https://github.com/elbasri/ai_health_management.git
    ```
 3. Install the module from the Apps menu in Odoo.
 
@@ -118,7 +118,7 @@ The module includes the following components:
 
 ## Requirements
 
-- Odoo 15
+- Odoo (Version: 13, 14, 15, 16, and 17)
 - OpenAI API Key
 - Internet connection for API calls
 
